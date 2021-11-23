@@ -27,22 +27,49 @@ player2 menang
 */
 
 class Pokemon {
+  constructor(name, hp, attack, defense) {
+    this.showPokemon = () => {
+      return {
+        name: name,
+        hp: hp,
+        attack: attack,
+        defense: defense
+      }
+    }
+  }
 }
 
-
-
-
+class Pokedex {
+  constructor(
+    {
+      player1,
+      attackOfPlayer1,
+      defenseOfPlayer1,
+      player2,
+      attackOfPlayer2,
+      defenseOfPlayer2
+    }) {
+    this.play = () => {
+        if(attackOfPlayer1 > defenseOfPlayer2) {
+          return `${player1} win`
+        } else if(attackOfPlayer2 > defenseOfPlayer1){
+          return `${player2} win`
+        }
+      }
+    }
+  }
 
 
 const bulbasaur = new Pokemon('bulbasaur', 40, 50, 70);
 const pikachu = new Pokemon('pikachu', 60, 40, 30);
 const battle1 = new Pokedex({
-  player1: bulbasaur.name,
-  attackOfPlayer1: bulbasaur.attack,
-  defenseOfPlayer1: bulbasaur.defense,
-  player2: pikachu.name,
-  attackOfPlayer2: pikachu.attack,
-  defenseOfPlayer2: pikachu.defense
+  player1: bulbasaur.showPokemon().name,
+  attackOfPlayer1: bulbasaur.showPokemon().attack,
+  defenseOfPlayer1: bulbasaur.showPokemon().defense,
+  player2: pikachu.showPokemon().name,
+  attackOfPlayer2: pikachu.showPokemon().attack,
+  defenseOfPlayer2: pikachu.showPokemon().defense
 })
 
 console.log(battle1.play())  // bulbasaur win
+

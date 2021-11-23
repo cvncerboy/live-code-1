@@ -9,8 +9,13 @@ ouput: 5050
 
 
 function sumOfNaturalsNum(n) {
+    let numFirst = 0;
+    for(let i = 0; i < n; i++){
+        numFirst += i;
+    }
+    return numFirst;
 }
 
 console.log(sumOfNaturalsNum(100)) // 4950
 console.log(sumOfNaturalsNum(400)) // 79800
-console.log(sumOfNaturalsNum(22500)) // 79800
+console.log(sumOfNaturalsNum(2250)) // 79800
